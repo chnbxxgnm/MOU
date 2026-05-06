@@ -1,8 +1,89 @@
-<script>
-// 👉 ดึงเลขโต๊ะจาก URL เช่น ?table=1
-const urlParams = new URLSearchParams(window.location.search);
-const table = urlParams.get('table') || "ไม่ระบุโต๊ะ";
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ร้านก๋วยเตี๋ยวพะโล้</title>
 
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background:#000;
+  color:#fff;
+}
+header {
+  text-align:center;
+  padding:20px;
+  background:linear-gradient(#000,#111);
+}
+.container {
+  padding:15px;
+}
+.card {
+  background:#111;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+}
+img {
+  width:100%;
+  border-radius:10px;
+}
+button {
+  width:100%;
+  padding:10px;
+  margin-top:8px;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
+  font-weight:bold;
+}
+.add {background:#28a745; color:#fff;}
+.line {background:#00c300; color:#fff;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🍜 ร้านก๋วยเตี๋ยวพะโล้</h1>
+  <p>เปิดทุกวัน 08:00 - 20:00</p>
+</header>
+
+<div class="container">
+
+<h2>เมนูแนะนำ</h2>
+
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+  <h3>ก๋วยเตี๋ยวพะโล้</h3>
+  <p>50 บาท</p>
+  <button class="add" onclick="addToCart('ก๋วยเตี๋ยวพะโล้',50)">เพิ่ม</button>
+</div>
+
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+  <h3>ข้าวหมูพะโล้</h3>
+  <p>60 บาท</p>
+  <button class="add" onclick="addToCart('ข้าวหมูพะโล้',60)">เพิ่ม</button>
+</div>
+
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb36">
+  <h3>ไข่พะโล้</h3>
+  <p>15 บาท</p>
+  <button class="add" onclick="addToCart('ไข่พะโล้',15)">เพิ่ม</button>
+</div>
+
+<h2>🛒 รายการสั่งอาหาร</h2>
+<div id="cart"></div>
+
+<button class="line" onclick="sendOrder()">📩 ส่งออเดอร์ไป LINE</button>
+
+</div>
+
+<script>
 let cart = [];
 
 function addToCart(name, price) {
@@ -11,7 +92,7 @@ function addToCart(name, price) {
 }
 
 function renderCart() {
-  let html = `<div class="card">โต๊ะ: ${table}</div>`;
+  let html = "";
   let total = 0;
 
   cart.forEach(item => {
@@ -24,7 +105,7 @@ function renderCart() {
 }
 
 function sendOrder() {
-  let text = `โต๊ะ: ${table}\nออเดอร์:\n`;
+  let text = "ออเดอร์:\n";
   let total = 0;
 
   cart.forEach(item => {
@@ -33,7 +114,10 @@ function sendOrder() {
   });
 
   text += `รวม ${total} บาท`;
-
-  window.open("https://line.me/R/msg/text/?" + encodeURIComponent(text));
+  
+  window.open(https:/line.me/ti/p/-xGlwqDw0E/?" + encodeURIComponent(text));
 }
 </script>
+
+</body>
+</html>
